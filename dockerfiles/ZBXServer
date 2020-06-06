@@ -1,0 +1,6 @@
+FROM 'zabbix/zabbix-server-mysql:alpine-latest'
+USER root
+RUN apk --update add curl wget && \
+    rm -rf /var/cache/apk/*
+USER zabbix
+
