@@ -1,6 +1,6 @@
-FROM 'zabbix/zabbix-server-mysql:alpine-latest'
+FROM 'zabbix/zabbix-server-mysql:ubuntu-latest'
 USER root
-RUN apk --update add curl wget && \
-    rm -rf /var/cache/apk/*
+RUN apt-get update -qq && \
+    apt-get install -y curl wget openssl && \
+    apt-get clean
 USER zabbix
-

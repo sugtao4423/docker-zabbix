@@ -2,11 +2,11 @@ version: '3.5'
 
 services:
     zabbix-agent:
-        image: 'zabbix/zabbix-agent'
+        image: 'zabbix/zabbix-agent:ubuntu-latest'
         restart: 'always'
 
     zabbix-server:
-        #image: 'zabbix/zabbix-server-mysql:latest'
+        #image: 'zabbix/zabbix-server-mysql:ubuntu-latest'
         build:
             context: './dockerfiles'
             dockerfile: 'ZBXServer'
@@ -24,7 +24,7 @@ services:
         restart: 'always'
 
     zabbix-web-nginx-mysql:
-        #image: 'zabbix/zabbix-web-nginx-mysql:latest'
+        #image: 'zabbix/zabbix-web-nginx-mysql:ubuntu-latest'
         build:
             context: './dockerfiles'
             dockerfile: 'ZBXFront'
@@ -39,4 +39,3 @@ services:
             - 'PHP_TZ=Asia/Tokyo'
         env_file: './mysql-vars.env'
         restart: 'always'
-
