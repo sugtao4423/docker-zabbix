@@ -36,6 +36,7 @@ services:
       - '/etc/localtime:/etc/localtime:ro'
       - '/etc/timezone:/etc/timezone:ro'
     environment:
+      - 'ZBX_SERVER_HOST=zabbix-server'
       - 'PHP_TZ=Asia/Tokyo'
     env_file: './mysql-vars.env'
     restart: 'always'
