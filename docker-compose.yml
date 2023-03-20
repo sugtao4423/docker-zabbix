@@ -17,7 +17,6 @@ services:
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
       - '/etc/timezone:/etc/timezone:ro'
-      - './alertscripts:/usr/lib/zabbix/alertscripts:ro'
     environment:
       - 'ZBX_ENABLE_SNMP_TRAPS=true'
     env_file: './mysql-vars.env'
