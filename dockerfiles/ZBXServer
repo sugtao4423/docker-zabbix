@@ -1,6 +1,0 @@
-FROM 'zabbix/zabbix-server-mysql:ubuntu-latest'
-USER root
-RUN apt-get update -qq && \
-    apt-get install -y curl wget openssl && \
-    apt-get clean
-USER zabbix
