@@ -1,11 +1,10 @@
-FROM 'zabbix/zabbix-web-nginx-mysql:ubuntu-latest'
+FROM zabbix/zabbix-web-nginx-mysql:ubuntu-latest AS build
 USER root
 RUN apt-get update -qq && \
     apt-get install -y wget zip && \
-    apt-get clean && \
     wget https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip && \
     mkdir /NotoSansCJKjp && \
-    unzip NotoSansCJKjp-hinted.zip -d /NotoSansCJKjp/ && \
-    cp /NotoSansCJKjp/NotoSansCJKjp-Regular.otf /usr/share/zabbix/assets/fonts/DejaVuSans.ttf && \
-    rm -rf /NotoSansCJKjp NotoSansCJKjp-hinted.zip
-USER zabbix
+    unzip NotoSansCJKjp-hinted.zip -d /NotoSansCJKjp/
+
+FROM zabbix/zabbix-web-nginx-mysql:ubuntu-latest
+COPY --from=build /NotoSansCJKjp/NotoSansCJKjp-Regular.otf /usr/share/zabbix/assets/fonts/DejaVuSans.ttf
