@@ -2,7 +2,7 @@ FROM zabbix/zabbix-web-nginx-mysql:ubuntu-latest AS build
 USER root
 RUN apt-get update -qq && \
     apt-get install -y wget zip && \
-    wget https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip && \
+    wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip && \
     mkdir /NotoSansCJKjp && \
     unzip NotoSansCJKjp-hinted.zip -d /NotoSansCJKjp/
 
