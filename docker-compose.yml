@@ -1,10 +1,12 @@
 services:
   zabbix-agent:
     image: zabbix/zabbix-agent:ubuntu-latest
+    hostname: zabbix-agent
     restart: always
 
   zabbix-server:
     image: zabbix/zabbix-server-mysql:ubuntu-latest
+    hostname: zabbix-server
     ports:
       - 10051:10051
     links:
@@ -19,6 +21,7 @@ services:
 
   zabbix-web-nginx-mysql:
     #image: zabbix/zabbix-web-nginx-mysql:ubuntu-latest
+    hostname: zabbix-web-nginx-mysql
     build:
       context: ./dockerfiles
       dockerfile: ZBXFront
