@@ -1,10 +1,10 @@
 # docker-zabbix
 Zabbix の Docker Compose
 
-## docker-compose.override.yml
+## compose.override.yaml
 Example
 
-```yml
+```yaml
 services:
   zabbix-agent:
     volumes:
